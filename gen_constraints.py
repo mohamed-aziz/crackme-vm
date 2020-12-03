@@ -7,7 +7,7 @@ num_params = {
     2: 2,
     3: 2,
     4: 2,
-    5: 3
+    #5: 3
 }
 
 operations = [
@@ -15,11 +15,13 @@ operations = [
     lambda x,y,z: ((x ^ y) + ((x & y) << 1) | z) +((x ^ y) + ((x & y) << 1) & z), # x + y + z
     lambda x,y: x^y,
     lambda x,y: ~(x)^y,
-    lambda x,y: ~(x^y)+x,
+    #lambda x,y: ~(x^y)+x,
 ]
 
 flag = "ctf{v1rtu4l_m4chine_pr0tection_is_soo_2010_xD}"
-
+import time 
+random.seed(time.time())
+print(flag[:1+int(sys.argv[1])])
 
 print("Generating constraints for {}".format(flag[int(sys.argv[1])]))
 
