@@ -3,7 +3,7 @@
 
 #define CODE_SEGMENT_SIZE  2048
 #define MEM_SEGMENT_SIZE 512
-#define DEBUG
+// #define DEBUG
 
 typedef struct VM
 {
@@ -108,11 +108,7 @@ void emulate(VM* vm) {
               // JMP IF REG1 != 0
               if (vm->REG1) { 
                   uint8_t tr = t;
-                  vm->pc = tr;
-                  jumped = true;
-              } else {
-                  uint8_t fa = v;
-                  vm->pc = fa;
+                  vm->pc = tr + vm->pc;
                   jumped = true;
               }
               #ifdef DEBUG
@@ -194,6 +190,12 @@ void emulate(VM* vm) {
         #endif
 
     } while (vm->program[vm->pc] != HALT);
+
+    #ifdef DEBUG
+    if (vm->program[vm->pc] == HALT) {
+        cerr << "HALT" << endl;
+    }
+    #endif
 
 }
 
