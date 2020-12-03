@@ -1,7 +1,7 @@
 #include <stdint.h>
 #include <iostream>
 
-#define CODE_SEGMENT_SIZE  512
+#define CODE_SEGMENT_SIZE  2048
 #define MEM_SEGMENT_SIZE 512
 #define DEBUG
 
