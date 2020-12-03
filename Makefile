@@ -1,5 +1,6 @@
 program: code.cpp
-	g++ code.cpp -oprogram
+	clang++ code.cpp -O2 -oprogram
+	strip program
 
 code.cpp:
 	python2 scotch.py > code.cpp
